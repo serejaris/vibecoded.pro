@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vibecoded.pro — weekly digest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #333;
+            background: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+        }
+
+        header {
+            grid-column: 1 / -1;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: normal;
+            letter-spacing: -1px;
+        }
+
+        .issue-info {
+            text-align: right;
+        }
+
+        .tagline {
+            margin-top: 5px;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .lead {
+            grid-column: 1 / 9;
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .sidebar {
+            grid-column: 9 / -1;
+            font-size: 10px;
+            color: #666;
+        }
+
+        article {
+            grid-column: span 4;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+
+        article.featured {
+            grid-column: 1 / 7;
+        }
+
+        article.side {
+            grid-column: 7 / -1;
+        }
+
+        article.full {
+            grid-column: 1 / -1;
+        }
+
+        h2 {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        h3 {
+            font-size: 11px;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .column-text {
+            column-count: 2;
+            column-gap: 20px;
+        }
+
+        .meta {
+            font-size: 9px;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 1px 3px;
+            font-size: 10px;
+        }
+
+        pre {
+            background: #f5f5f5;
+            padding: 10px;
+            overflow-x: auto;
+            margin: 10px 0;
+            font-size: 10px;
+        }
+
+        .divider {
+            grid-column: 1 / -1;
+            border-top: 1px solid #333;
+            margin: 30px 0;
+        }
+
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        li {
+            margin-bottom: 3px;
+        }
+
+        .highlight {
+            background: #ffff99;
+            padding: 2px;
+        }
+
+        footer {
+            grid-column: 1 / -1;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #333;
+            font-size: 9px;
+            color: #666;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            article, article.featured, article.side, .lead, .sidebar {
+                grid-column: 1;
+            }
+
+            .column-text {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="masthead">
+                <div>
+                    <h1>vibecoded.pro</h1>
+                    <div class="tagline">еженедельный дайджест о вайбкодинге и промптинге</div>
+                </div>
+                <div class="issue-info">
+                    <div>выпуск #001</div>
+                    <div>август 2025</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="lead">
+            <strong>Вайбкодинг переопределяет разработку.</strong> 25% стартапов Y Combinator генерируют 95% кода через AI. От «набивания кода» к диалогу с машиной — парадигма меняется прямо сейчас.
+        </div>
+
+        <div class="sidebar">
+            <h3>В ЭТОМ ВЫПУСКЕ</h3>
+            <ul>
+                <li>Что такое вайбкодинг</li>
+                <li>Промпт-инженерия 2025</li>
+                <li>Инструменты и риски</li>
+                <li>Техники и практики</li>
+            </ul>
+        </div>
+
+        <article class="featured">
+            <h2>VIBE CODING: ПРОГРАММИРОВАНИЕ ЧЕРЕЗ ВАЙБ</h2>
+            <div class="column-text">
+                <p>Февраль 2025. Андрей Карпатый вводит термин «vibe coding» — подход к разработке, где программист описывает задачу LLM, а не пишет код. <span class="highlight">«Полностью отдаться вайбу, принять экспоненты и забыть, что код вообще существует»</span> — ключевая философия.</p>
+                
+                <p>Это не просто AI-ассистент. Разработчик избегает микроменеджмента кода, либерально принимает AI-предложения, фокусируется на итеративных экспериментах, а не на корректности структуры.</p>
+
+                <p>Саймон Уиллисон уточняет: «Если LLM написал каждую строку, но вы проверили, протестировали и поняли всё — это не вайбкодинг. Это использование LLM как ассистента для набора текста».</p>
+
+                <h3>ИНСТРУМЕНТЫ</h3>
+                <ul>
+                    <li>Cursor Composer + Claude Sonnet</li>
+                    <li>Replit Agent</li>
+                    <li>Bolt.new</li>
+                    <li>Tempo Labs</li>
+                </ul>
+
+                <h3>РИСКИ</h3>
+                <p>Отсутствие контроля. Проблемы с поддержкой. Уязвимости безопасности. В июле 2025 Replit Agent удалил базу данных, несмотря на явный запрет вносить изменения.</p>
+            </div>
+            <div class="meta">Wall Street Journal: «Вайбкодинг входит в коммерческую разработку»</div>
+        </article>
+
+        <article class="side">
+            <h2>СТАТИСТИКА</h2>
+            <p><strong>25%</strong> — доля стартапов YC с 95% AI-генерированным кодом</p>
+            <p><strong>Март 2025</strong> — Merriam-Webster добавляет «vibe coding» в словарь</p>
+            <p><strong>Июль 2025</strong> — первые коммерческие внедрения</p>
+            
+            <h3>МУЛЬТИМОДАЛЬНОСТЬ</h3>
+            <p>Эволюция включает голосовое управление, визуальные интерфейсы программирования, гибридные среды разработки. VibeOps автоматизирует DevOps через AI.</p>
+
+            <h3>КРИТИКА</h3>
+            <p>«Результаты ограничены и подвержены ошибкам. В одном случае AI сгенерировал фейковые отзывы для e-commerce сайта» — отчёт индустрии, август 2025.</p>
+        </article>
+
+        <div class="divider"></div>
+
+        <article class="full">
+            <h2>ПРОМПТ-ИНЖЕНЕРИЯ: ПРАКТИКИ 2025</h2>
+            <div class="column-text">
+                <p>Чёткая структура и контекст важнее умных формулировок. Большинство сбоев промптов происходит из-за неоднозначности, а не ограничений модели. Акцент сместился с попыток быть умным на точность и структурированность.</p>
+
+                <h3>БАЗОВЫЕ ПРИНЦИПЫ</h3>
+                <ol>
+                    <li><strong>Ясный язык:</strong> избегайте двусмысленности, будьте лаконичны</li>
+                    <li><strong>Детальные инструкции:</strong> разбивайте задачи на подзадачи</li>
+                    <li><strong>Примеры в промптах:</strong> показывайте, что хотите получить</li>
+                    <li><strong>Данные при необходимости:</strong> добавляйте точную информацию</li>
+                    <li><strong>Определение вывода:</strong> укажите формат и структуру</li>
+                </ol>
+
+                <h3>ПРОДВИНУТЫЕ ТЕХНИКИ</h3>
+                
+                <p><strong>Chain-of-Thought (CoT)</strong><br>
+                Разбивает сложные задачи на простые подшаги. Инструктирует LLM решать проблему пошагово. Комбинация с few-shot особенно эффективна. Для простых задач: «Let's think step by step».</p>
+
+                <p><strong>Prompt Scaffolding</strong><br>
+                Оборачивание пользовательского ввода в структурированные, защищённые шаблоны. Defensive prompting: не просто просите модель ответить — говорите ей, как думать, отвечать и отклонять неподходящие запросы.</p>
+
+                <p><strong>Meta Prompting</strong><br>
+                Абстрактный подход, подчёркивающий формат и логику запросов, а не детальные примеры. Фокус на структуре ответа.</p>
+
+                <p><strong>Model-Specific оптимизация</strong><br>
+                GPT-4o, Claude 4, Gemini 2.5 лучше реагируют на разные паттерны форматирования. Универсальной best practice не существует.</p>
+            </div>
+        </article>
+
+        <article>
+            <h2>CONTEXT ENGINEERING</h2>
+            <p>Истинная экспертиза в продвинутом промптинге — понимание широкого контекста работы AI: намерения пользователя, история диалога, структура обучающих данных, поведение разных моделей.</p>
+            
+            <p>Техники: RAG (retrieval-augmented generation), суммаризация, структурированные входы (JSON).</p>
+            
+            <div class="meta">IBM: «Context shapes interpretation»</div>
+        </article>
+
+        <article>
+            <h2>МУЛЬТИМОДАЛЬНЫЙ ПРОМПТИНГ</h2>
+            <p>Современные системы поддерживают мультимодальные входы — текст, изображения, аудио. Модели: Granite, Gemini, GPT-4o, DALL·E.</p>
+            
+            <p>Создавайте промпты, комбинирующие разные медиа для более естественного взаимодействия человека и AI.</p>
+
+            <pre>
+# Пример мультимодального промпта
+{
+  "text": "Опиши эту схему",
+  "image": "diagram.png",
+  "context": "техническая документация"
+}
+            </pre>
+        </article>
+
+        <article>
+            <h2>БЕЗОПАСНОСТЬ</h2>
+            <p>Промпт-инженерия — не только инструмент юзабилити, но и потенциальный риск безопасности при эксплуатации через adversarial техники.</p>
+            
+            <p>«Часто можно обойти guardrails LLM, просто переформулировав вопрос — линия между выровненным и adversarial поведением тоньше, чем думает большинство» — Lakera AI, 2025.</p>
+
+            <h3>ЗАЩИТНЫЕ МЕРЫ</h3>
+            <ul>
+                <li>Prompt sandboxing</li>
+                <li>Структурированные шаблоны</li>
+                <li>Явные правила отклонения</li>
+                <li>Контекстная валидация</li>
+            </ul>
+        </article>
+
+        <div class="divider"></div>
+
+        <article class="full">
+            <h2>ИТЕРАТИВНОЕ ТЕСТИРОВАНИЕ</h2>
+            <p>Экспериментируйте и итерируйте непрерывно. Тестируйте, анализируйте и уточняйте промпты регулярно. Когда можете модифицировать промпты самостоятельно, а не ждать инженерных циклов — итерации быстрее.</p>
+            
+            <p><strong>Промпт-инженерия — это продуктовая стратегия в маскировке.</strong> Каждая инструкция в системном промпте — продуктовое решение.</p>
+
+            <h3>ПЕРСОНА-BASED КАСТОМИЗАЦИЯ</h3>
+            <div class="column-text">
+                <p>Назначение ролей или персон AI ведёт к более адаптированным, контекстно-специфичным ответам. Формулируя задачу с определённой перспективы, вы направляете модель к вашим специфическим нуждам.</p>
+                
+                <p>Пример: для маркетингового совета инструктируйте AI принять персону маркетингового эксперта. Это создаёт frame of reference для модели, позволяя генерировать более точные и инсайтные результаты.</p>
+
+                <pre>
+# Пример персоны
+Ты — senior backend developer с 10-летним 
+опытом в distributed systems. Твоя задача — 
+провести code review с фокусом на 
+масштабируемость и отказоустойчивость.
+                </pre>
+
+                <p>Ландшафт промпт-инженерии 2025 подчёркивает структурированные, context-aware подходы с фокусом на model-specific оптимизацию, соображения безопасности и интеграцию с широкими AI-системами типа RAG.</p>
+                
+                <p>Область созрела от простых трюков до сложных инженерных практик, требующих понимания как технических, так и стратегических аспектов AI-взаимодействия.</p>
+            </div>
+        </article>
+
+        <footer>
+            <p>vibecoded.pro — еженедельный дайджест о вайбкодинге и промптинге</p>
+            <p>выпуск #001 · август 2025 · распространяется свободно</p>
+        </footer>
+    </div>
+</body>
+</html>
