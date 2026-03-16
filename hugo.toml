@@ -1,0 +1,60 @@
+baseURL = "https://vibecoded.pro/"
+languageCode = "ru"
+title = "vibecoded.pro — Курированные ответы для вайбкодеров"
+
+enableRobotsTXT = true
+enableGitInfo = true
+
+[frontmatter]
+  lastmod = ["lastmod", ":git", "date"]
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[permalinks]
+  q = '/q/:contentbasename'
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term = ["HTML"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    codeFences = true
+    style = 'dracula'
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
+[params]
+  description = "Курированные ответы из сообщества вайбкодеров: вопрос, мнения, код, решение"
+  author = "vibecoded.pro"
+  ogImage = "https://vibecoded.pro/og-image.png"
+  gitRepo = "https://github.com/serejaris/vibecoded.pro"
+
+  [[params.social]]
+    name = "telegram"
+    url = "https://t.me/vibecod3rs"
+  [[params.social]]
+    name = "youtube"
+    url = "https://www.youtube.com/@serejaris"
+
+[related]
+  threshold = 80
+  includeNewer = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 80
+  [[related.indices]]
+    name = "date"
+    weight = 10

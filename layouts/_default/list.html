@@ -1,0 +1,18 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ with .Description }}<p style="color: #666; font-size: 0.85rem; margin-bottom: 2rem;">{{ . }}</p>{{ end }}
+
+{{ if eq .Kind "taxonomy" }}
+<div class="tags-list" style="margin-bottom: 2rem;">
+  {{ range .Data.Terms.Alphabetical }}
+  <a href="{{ .Page.Permalink }}" class="tag">{{ .Page.Title }} ({{ .Count }})</a>
+  {{ end }}
+</div>
+{{ else }}
+<div class="card-grid">
+  {{ range .Pages.ByDate.Reverse }}
+  {{ partial "card.html" . }}
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}

@@ -1,0 +1,63 @@
+{{ define "main" }}
+<article class="curated-page">
+  <div class="question-header">
+    <div class="q-card-question">
+      <span class="q-mark" style="font-size: 1.3rem;">?</span>
+      <h1>{{ .Title }}</h1>
+    </div>
+  </div>
+
+  {{ with .Params.short_answer }}
+  <div class="short-answer">
+    <span class="label">Короткий ответ</span>
+    <p>{{ . }}</p>
+  </div>
+  {{ end }}
+
+  <div class="meta-bar">
+    {{ with .Params.opinions_count }}<span>{{ . }} {{ if le . 1 }}мнение{{ else if le . 4 }}мнения{{ else }}мнений{{ end }}</span>{{ end }}
+    {{ if .Params.has_code }}<span>с кодом</span>{{ end }}
+    {{ with .Params.difficulty }}<span>{{ . }}</span>{{ end }}
+    <span>{{ .Date.Format "02.01.2006" }}</span>
+    {{ if ne .Date .Lastmod }}<span>обн. {{ .Lastmod.Format "02.01.2006" }}</span>{{ end }}
+  </div>
+
+  {{ with .Params.tags }}
+  <div class="tags-list" style="margin-bottom: 1.5rem;">
+    {{ range . }}<a href="{{ "/tags/" | relURL }}{{ . | urlize }}/" class="tag">{{ . }}</a>{{ end }}
+  </div>
+  {{ end }}
+
+  <div class="content-body">
+    {{ .Content }}
+  </div>
+
+  {{ $related := .Site.RegularPages.Related . | first 5 }}
+  {{ with $related }}
+  <div class="related-questions">
+    <h2>Похожие вопросы</h2>
+    <ul>
+      {{ range . }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ with .Params.short_answer }}<p>{{ . | truncate 120 }}</p>{{ end }}
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  <div class="cta-block">
+    <p><strong>Хочешь задать свой вопрос?</strong></p>
+    <p>Присоединяйся к <a href="https://t.me/vibecod3rs">сообществу вайбкодеров</a> — обсуждаем инструменты, делимся промптами, помогаем друг другу.</p>
+  </div>
+
+  {{ with .Params.thread_url }}
+  <p class="thread-link"><a href="{{ . }}" target="_blank" rel="noopener">Оригинальный тред &rarr;</a></p>
+  {{ end }}
+
+  {{ with .Site.Params.gitRepo }}
+  <a href="{{ . }}/edit/main/content/{{ $.File.Path }}" target="_blank" rel="noopener" class="edit-link">Предложить правку &rarr;</a>
+  {{ end }}
+</article>
+{{ end }}

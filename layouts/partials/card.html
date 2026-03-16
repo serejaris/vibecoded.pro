@@ -1,0 +1,15 @@
+<a href="{{ .Permalink }}" class="q-card{{ with .Params.featured }} q-featured{{ end }}">
+  <div class="q-card-question">
+    <span class="q-mark">?</span>
+    <span class="q-card-title">{{ .Title }}</span>
+  </div>
+  {{ with .Params.short_answer }}
+  <p class="q-card-answer">{{ . | truncate 140 }}</p>
+  {{ end }}
+  <div class="q-card-meta">
+    {{ with .Params.opinions_count }}<span>{{ . }} {{ if le . 1 }}мнение{{ else if le . 4 }}мнения{{ else }}мнений{{ end }}</span><span class="sep">&middot;</span>{{ end }}
+    {{ if .Params.has_code }}<span>с кодом</span><span class="sep">&middot;</span>{{ end }}
+    {{ with .Params.difficulty }}<span>{{ . }}</span><span class="sep">&middot;</span>{{ end }}
+    <span>{{ .Date.Format "02.01.2006" }}</span>
+  </div>
+</a>

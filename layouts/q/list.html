@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h1>Все вопросы</h1>
+<p style="color: #666; font-size: 0.85rem; margin-bottom: 2rem;">{{ len .Pages }} {{ if le (len .Pages) 1 }}вопрос{{ else if le (len .Pages) 4 }}вопроса{{ else }}вопросов{{ end }} из комьюнити <a href="https://t.me/vibecod3rs">@vibecod3rs</a></p>
+
+<div class="card-grid">
+  {{ range .Pages.ByDate.Reverse }}
+  {{ partial "card.html" . }}
+  {{ end }}
+</div>
+{{ end }}

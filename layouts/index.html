@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="home-hero">
+  <h1 class="home-hero-title">vibecoded.pro</h1>
+  <p class="home-hero-desc">Курированные ответы из 10 000+ сообщений комьюнити <a href="https://t.me/vibecod3rs">@vibecod3rs</a>. Один сильный тред = одна индексируемая страница.</p>
+</div>
+
+{{ $questions := where .Site.RegularPages "Section" "q" }}
+{{ $latest := $questions | first 5 }}
+
+{{ with $latest }}
+<div class="section-label">Последние</div>
+{{ range $i, $page := . }}
+{{ if eq $i 0 }}
+<a href="{{ .Permalink }}" class="q-card q-featured">
+  <div class="q-card-question">
+    <span class="q-mark">?</span>
+    <span class="q-card-title">{{ .Title }}</span>
+  </div>
+  {{ with .Params.short_answer }}
+  <p class="q-card-answer">{{ . }}</p>
+  {{ end }}
+  <div class="q-card-meta">
+    {{ with .Params.opinions_count }}<span>{{ . }} {{ if le . 1 }}мнение{{ else if le . 4 }}мнения{{ else }}мнений{{ end }}</span><span class="sep">&middot;</span>{{ end }}
+    {{ if .Params.has_code }}<span>с кодом</span><span class="sep">&middot;</span>{{ end }}
+    {{ with .Params.difficulty }}<span>{{ . }}</span><span class="sep">&middot;</span>{{ end }}
+    <span>{{ .Date.Format "02.01.2006" }}</span>
+  </div>
+</a>
+{{ else }}
+<a href="{{ .Permalink }}" class="q-card">
+  <div class="q-card-question">
+    <span class="q-mark">?</span>
+    <span class="q-card-title">{{ .Title }}</span>
+  </div>
+  {{ with .Params.short_answer }}
+  <p class="q-card-answer">{{ . | truncate 120 }}</p>
+  {{ end }}
+  <div class="q-card-meta">
+    {{ with .Params.opinions_count }}<span>{{ . }} {{ if le . 1 }}мнение{{ else if le . 4 }}мнения{{ else }}мнений{{ end }}</span><span class="sep">&middot;</span>{{ end }}
+    {{ if .Params.has_code }}<span>с кодом</span><span class="sep">&middot;</span>{{ end }}
+    {{ with .Params.difficulty }}<span>{{ . }}</span><span class="sep">&middot;</span>{{ end }}
+    <span>{{ .Date.Format "02.01.2006" }}</span>
+  </div>
+</a>
+{{ end }}
+{{ end }}
+{{ end }}
+
+{{ $allTags := .Site.Taxonomies.tags }}
+{{ if $allTags }}
+<div class="section-label">Популярные теги</div>
+<div class="tags-list">
+  {{ range $name, $pages := $allTags }}
+  <a href="{{ "/tags/" | relURL }}{{ $name | urlize }}/" class="tag">{{ $name }}</a>
+  {{ end }}
+</div>
+{{ end }}
+
+<div class="about-block">
+  <p><strong>vibecoded.pro</strong> — кураторский проект. Мы находим лучшие обсуждения из Telegram-комьюнити <a href="https://t.me/vibecod3rs">@vibecod3rs</a>, структурируем мнения и публикуем как отдельные страницы. Каждый ответ — реальный опыт вайбкодеров, а не SEO-вода.</p>
+</div>
+{{ end }}
