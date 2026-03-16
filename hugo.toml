@@ -3,7 +3,7 @@ languageCode = "ru"
 title = "vibecoded.pro — Курированные ответы для вайбкодеров"
 
 enableRobotsTXT = true
-enableGitInfo = true
+enableGitInfo = false
 
 [frontmatter]
   lastmod = ["lastmod", ":git", "date"]
